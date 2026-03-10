@@ -183,14 +183,19 @@ export default function App() {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const { name, email, message } = contactForm;
+    const text = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+    window.open(`https://wa.me/918082521289?text=${text}`, "_blank");
     setContactSubmitted(true);
-    toast.success("Message sent! We'll reply within 24 hours.");
+    toast.success("Opening WhatsApp — we'll reply within 24 hours!");
     setContactForm({ name: "", email: "", message: "" });
   };
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   const navLinks = [
@@ -527,7 +532,7 @@ export default function App() {
                 ))}
               </div>
               <a
-                href="https://wa.me/917006XXXXXX"
+                href="https://wa.me/918082521289"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 font-semibold text-sm tracking-wide transition-colors"
@@ -806,7 +811,7 @@ export default function App() {
                   icon: <MessageCircle className="w-5 h-5" />,
                   label: "WhatsApp",
                   value: "Chat with us",
-                  href: "https://wa.me/917006XXXXXX",
+                  href: "https://wa.me/918082521289",
                   color: "bg-green-100 text-green-600",
                 },
               ].map((item) => (
@@ -851,7 +856,7 @@ export default function App() {
                     Message Sent!
                   </h3>
                   <p className="text-brand-charcoal/70">
-                    We'll reply within 24 hours.
+                    WhatsApp opened — we'll reply within 24 hours.
                   </p>
                   <button
                     type="button"
@@ -875,6 +880,7 @@ export default function App() {
                     </Label>
                     <Input
                       id="contact-name"
+                      data-ocid="contact.input"
                       required
                       value={contactForm.name}
                       onChange={(e) =>
@@ -929,7 +935,7 @@ export default function App() {
                     data-ocid="contact.submit_button"
                     className="w-full bg-brand-gold hover:bg-brand-gold/90 text-white rounded-none py-6 font-semibold tracking-wide"
                   >
-                    Send Message
+                    Send via WhatsApp
                   </Button>
                 </form>
               )}
@@ -986,7 +992,7 @@ export default function App() {
                   <Instagram className="w-4 h-4 text-white" />
                 </a>
                 <a
-                  href="https://wa.me/917006XXXXXX"
+                  href="https://wa.me/918082521289"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-green-600 flex items-center justify-center transition-colors"
@@ -1103,7 +1109,7 @@ export default function App() {
                   </span>
                 </div>
                 <a
-                  href={`https://wa.me/917006XXXXXX?text=${encodeURIComponent(`Hi! I'd like to order: ${cart.map((i) => `${i.name} (x${i.qty})`).join(", ")}. Total: ₹${cartTotal.toLocaleString("en-IN")}`)}`}
+                  href={`https://wa.me/918082521289?text=${encodeURIComponent(`Hi! I'd like to order: ${cart.map((i) => `${i.name} (x${i.qty})`).join(", ")}. Total: ₹${cartTotal.toLocaleString("en-IN")}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-green-600 hover:bg-green-700 text-white py-3 font-semibold text-sm tracking-wide transition-colors"
