@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Kashmiri-inspired palette — OKLCH raw L C H values */
+    --background: 97 0.015 80;
+    --foreground: 20 0.02 60;
+    --card: 95 0.018 75;
+    --card-foreground: 20 0.02 60;
+    --popover: 97 0.015 80;
+    --popover-foreground: 20 0.02 60;
+
+    /* Deep gold — primary */
+    --primary: 58 0.12 75;
+    --primary-foreground: 98 0.005 80;
+
+    /* Muted burgundy — secondary */
+    --secondary: 40 0.06 20;
+    --secondary-foreground: 97 0.008 80;
+
+    /* Soft warm muted */
+    --muted: 93 0.02 80;
+    --muted-foreground: 45 0.04 50;
+
+    /* Teal accent */
+    --accent: 62 0.08 195;
+    --accent-foreground: 98 0.005 195;
+
+    --destructive: 50 0.18 25;
+    --destructive-foreground: 98 0.005 0;
+
+    --border: 88 0.025 75;
+    --input: 88 0.025 75;
+    --ring: 58 0.12 75;
+    --radius: 0.5rem;
+
+    /* Brand-specific tokens */
+    --ivory: 97 0.018 85;
+    --warm-beige: 92 0.028 80;
+    --deep-gold: 58 0.13 75;
+    --burgundy: 38 0.12 15;
+    --soft-teal: 62 0.1 195;
+    --charcoal: 20 0.015 60;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .text-brand-gold {
+    color: oklch(var(--deep-gold));
+  }
+  .text-brand-burgundy {
+    color: oklch(var(--burgundy));
+  }
+  .text-brand-teal {
+    color: oklch(var(--soft-teal));
+  }
+  .bg-brand-ivory {
+    background-color: oklch(var(--ivory));
+  }
+  .bg-brand-beige {
+    background-color: oklch(var(--warm-beige));
+  }
+  .bg-brand-gold {
+    background-color: oklch(var(--deep-gold));
+  }
+  .bg-brand-burgundy {
+    background-color: oklch(var(--burgundy));
+  }
+  .border-brand-gold {
+    border-color: oklch(var(--deep-gold));
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
